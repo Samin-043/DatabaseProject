@@ -62,7 +62,7 @@ values(5000,1),
 
 create table customer
 (
-	customer_id int primary key,
+	customer_id int identity(3000,1) primary key,     
 	name varchar(15) not null,
 	customer_address varchar(50) not null,
 	phone_no varchar(11) not null,
@@ -72,10 +72,10 @@ create table customer
 
 select * from customer
 
-insert into customer(customer_id,name,customer_address,phone_no,email)
-values(3000,'Ameer','Paribagh','01721469854','ameer@gmail.com'),
-	  (3001,'Tanvir','Shobujbagh','01821469854','tanvir@gmail.com'),
-	  (3002,'Joynul','Rajarbagh','01931460814','joynul@gmail.com')
+insert into customer(name,customer_address,phone_no,email)
+values('Ameer','Paribagh','01721469854','ameer@gmail.com'),
+	  ('Tanvir','Shobujbagh','01821469854','tanvir@gmail.com'),
+	  ('Joynul','Rajarbagh','01931460814','joynul@gmail.com')
 
 
 
