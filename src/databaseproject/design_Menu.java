@@ -5,24 +5,17 @@
  */
 package databaseproject;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
 /**
  *
  * @author DELL
  */
-public class Menu_Frame extends javax.swing.JFrame {
+public class design_Menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu_Frame
+     * Creates new form design_Menu
      */
-    public Menu_Frame() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public design_Menu() {
         initComponents();
-        this.setSize(900, 500);
-        this.setLocationRelativeTo(null);
-        
     }
 
     /**
@@ -34,26 +27,28 @@ public class Menu_Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        supplier_add = new javax.swing.JMenuItem();
-        supplier_view = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\WMS_back_4.png")); // NOI18N
+        jLabel1.setText("jLabel1");
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 51, 102));
-        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\WMS_back_5.png")); // NOI18N
+        jLabel2.setText("                             ");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -61,36 +56,30 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setBackground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("Supplier");
 
-        supplier_add.setText("ADD");
-        supplier_add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplier_addActionPerformed(evt);
-            }
-        });
-        jMenu3.add(supplier_add);
+        jMenuItem1.setText("ADD");
+        jMenu3.add(jMenuItem1);
 
-        supplier_view.setText("VIEW");
-        supplier_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplier_viewActionPerformed(evt);
-            }
-        });
-        jMenu3.add(supplier_view);
+        jMenuItem2.setText("VIEW");
+        jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Product");
+        jMenu5.setText("Product");
 
-        jMenuItem4.setText("ADD");
-        jMenu4.add(jMenuItem4);
+        jMenuItem3.setText("ADD");
+        jMenu5.add(jMenuItem3);
 
-        jMenuItem5.setText("LIST");
-        jMenu4.add(jMenuItem5);
+        jMenuItem4.setText("List");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -99,30 +88,31 @@ public class Menu_Frame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGap(254, 254, 254)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
+                .addComponent(jLabel1)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void supplier_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_addActionPerformed
-        SupplierFrame sf=new SupplierFrame();
-        sf.setVisible(true);
-    }//GEN-LAST:event_supplier_addActionPerformed
-
-    private void supplier_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_viewActionPerformed
-        SupplierFrame_view sf_v=new SupplierFrame_view();
-        sf_v.setVisible(true);
-    }//GEN-LAST:event_supplier_viewActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,36 +131,36 @@ public class Menu_Frame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(design_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(design_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(design_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(design_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                new Menu_Frame().setVisible(true);
+                new design_Menu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem supplier_add;
-    private javax.swing.JMenuItem supplier_view;
     // End of variables declaration//GEN-END:variables
 }
