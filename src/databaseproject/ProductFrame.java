@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +22,10 @@ public class ProductFrame extends javax.swing.JFrame {
     
     public ProductFrame() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(900, 500);
+        this.setLocationRelativeTo(null);
+
         showProduct();
     }
     

@@ -26,8 +26,7 @@ class Product {
         this.price=pric_e;
         this.description=descriptio_n;
         this.category=categor_y;
-        this.supplier_id=supplier_i_d;
-        
+        this.supplier_id=supplier_i_d;   
     }
     
     public int getproductID()

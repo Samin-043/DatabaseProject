@@ -23,7 +23,7 @@ class Supplier {
         this.email=email;
     }
     
-    public int getupplier_id()
+    public int getsupplier_id()
     {
          return supplier_id;
     }
