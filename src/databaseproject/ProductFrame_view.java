@@ -23,7 +23,7 @@ public class ProductFrame_view extends javax.swing.JFrame {
     public ProductFrame_view() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(900, 500);
+         this.setSize(900, 600);
         this.setLocationRelativeTo(null);
 
         showProduct();

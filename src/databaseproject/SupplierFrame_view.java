@@ -5,13 +5,19 @@
  */
 package databaseproject;
 
+import com.sun.org.apache.xalan.internal.XalanConstants;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jdk.management.resource.ResourceType;
+import sun.security.provider.ConfigFile;
 
 /**
  *
@@ -19,17 +25,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SupplierFrame_view extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SupplierFrame_view
-     */
     public SupplierFrame_view() {
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-        this.setSize(900, 500);
+        this.setSize(1000, 600);
         this.setLocationRelativeTo(null);
         showSupplier();
     }
 
+    /**
+     * Creates new form SupplierFrame_view
+     */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,11 +49,26 @@ public class SupplierFrame_view extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_supplier = new javax.swing.JTable();
-        jButton_menupageback = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        SupplierInfo_ID = new javax.swing.JTextField();
+        SupplierInfo_Address = new javax.swing.JTextField();
+        SupplierInfo_Phone = new javax.swing.JTextField();
+        SupplierInfo_Email = new javax.swing.JTextField();
+        SupplierInfo_Name = new javax.swing.JTextField();
+        jButton_BackMenuPage = new javax.swing.JButton();
+        SupplierInfo_Edit_Button = new javax.swing.JButton();
+        SupplierInfo_Delete_Info_Button = new javax.swing.JButton();
+        Supplier_search_text = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
 
         jTable_supplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,108 +86,325 @@ public class SupplierFrame_view extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable_supplier);
-
-        jButton_menupageback.setText("OK");
-        jButton_menupageback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_menupagebackActionPerformed(evt);
+        jTable_supplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_supplierMouseClicked(evt);
             }
         });
+        jTable_supplier.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable_supplierKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable_supplier);
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel1.setText("      Supplier Info        ");
+
+        jLabel2.setText("     ID");
+
+        jLabel3.setText("  Name");
+
+        jLabel4.setText("Address");
+
+        jLabel5.setText("  Phone");
+
+        jLabel6.setText("   Email");
+
+        SupplierInfo_Phone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                SupplierInfo_PhoneKeyPressed(evt);
+            }
+        });
+
+        jButton_BackMenuPage.setText("Back");
+        jButton_BackMenuPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BackMenuPageActionPerformed(evt);
+            }
+        });
+
+        SupplierInfo_Edit_Button.setText("Update");
+        SupplierInfo_Edit_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierInfo_Edit_ButtonActionPerformed(evt);
+            }
+        });
+
+        SupplierInfo_Delete_Info_Button.setText("Delete");
+        SupplierInfo_Delete_Info_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierInfo_Delete_Info_ButtonActionPerformed(evt);
+            }
+        });
+
+        Supplier_search_text.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Supplier_search_textKeyPressed(evt);
+            }
+        });
+
+        jLabel7.setText("   Search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(35, 35, 35)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(SupplierInfo_Phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(94, 94, 94))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(jButton_menupageback)))
-                .addContainerGap(315, Short.MAX_VALUE))
+                        .addComponent(jButton_BackMenuPage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SupplierInfo_Edit_Button)
+                        .addGap(52, 52, 52)
+                        .addComponent(SupplierInfo_Delete_Info_Button)
+                        .addGap(44, 44, 44)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(378, 378, 378)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Supplier_search_text, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_menupageback)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Supplier_search_text, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SupplierInfo_Phone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(97, 97, 97)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_BackMenuPage)
+                    .addComponent(SupplierInfo_Delete_Info_Button)
+                    .addComponent(SupplierInfo_Edit_Button))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_menupagebackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_menupagebackActionPerformed
-        Menu_Frame mf=new Menu_Frame();
+    private void jButton_BackMenuPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BackMenuPageActionPerformed
+        Menu_Frame mf = new Menu_Frame();
         mf.setVisible(true);
-    }//GEN-LAST:event_jButton_menupagebackActionPerformed
+        dispose();
 
-    
-    public ArrayList<Supplier> supplierlist(){
-            ArrayList<Supplier> supplierlist=new ArrayList<>();
+    }//GEN-LAST:event_jButton_BackMenuPageActionPerformed
+
+    private void jTable_supplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_supplierMouseClicked
+        int rowIndex = jTable_supplier.getSelectedRow();
+
+        DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
+
+        SupplierInfo_ID.setText(model.getValueAt(rowIndex, 0).toString());
+        SupplierInfo_Name.setText(model.getValueAt(rowIndex, 1).toString());
+        SupplierInfo_Address.setText(model.getValueAt(rowIndex, 2).toString());
+        SupplierInfo_Phone.setText(model.getValueAt(rowIndex, 3).toString());
+        SupplierInfo_Email.setText(model.getValueAt(rowIndex, 4).toString());
+
+
+    }//GEN-LAST:event_jTable_supplierMouseClicked
+
+    private void jTable_supplierKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable_supplierKeyPressed
+
+
+    }//GEN-LAST:event_jTable_supplierKeyPressed
+
+    private void Supplier_search_textKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Supplier_search_textKeyPressed
+
+
+    }//GEN-LAST:event_Supplier_search_textKeyPressed
+
+    /*          Supplier info edited part                        */
+    private void SupplierInfo_Edit_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierInfo_Edit_ButtonActionPerformed
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
+            Statement statement = connection.createStatement();
+
+            int row = jTable_supplier.getSelectedRow();
+            String value = (jTable_supplier.getModel().getValueAt(row, 0).toString());
+
+            String query = "Update supplier set name=?,address_sup=?,phone_num=?,email=? where supplier_id=" + value;
+
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, SupplierInfo_Name.getText());
+            pst.setString(2, SupplierInfo_Address.getText());
+            pst.setString(3, SupplierInfo_Phone.getText());
+            pst.setString(4, SupplierInfo_Email.getText());
+
+            pst.executeUpdate();
+
+            DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
+            model.setRowCount(0);
+            showSupplier();
+            JOptionPane.showMessageDialog(null, "Updated Succesfully...");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_SupplierInfo_Edit_ButtonActionPerformed
+    /*..................DELETED part  here........... */
+    private void SupplierInfo_Delete_Info_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierInfo_Delete_Info_ButtonActionPerformed
+
+       int option = JOptionPane.showConfirmDialog(null, "Are You Sure want to delete", "Delete", JOptionPane.YES_NO_OPTION);
+
+        if (option == 0) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
                 Statement statement = connection.createStatement();
-                
-                ResultSet resultSet=statement.executeQuery("Select * from supplier");
-                Supplier sp;
-               
-                
-                while(resultSet.next())
-                {
-                   sp=new Supplier(resultSet.getInt("supplier_id"),resultSet.getString("name"), resultSet.getString("address_sup"),resultSet.getString("phone_num"), resultSet.getString("email"));
-                   supplierlist.add(sp);
-                   
-                }
-                
+
+                int row = jTable_supplier.getSelectedRow();
+                String value = (jTable_supplier.getModel().getValueAt(row, 0).toString());
+                String query = "DELETE from supplier where supplier_id=" + value;
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.executeUpdate();
+                DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
+                model.setRowCount(0);
+                showSupplier();
+                JOptionPane.showMessageDialog(null, "Deleted Succesfully...");
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            catch (Exception e) {
-            e.printStackTrace();
-           }
-            
-            return supplierlist;
-    }
-    
-    public void showSupplier(){
-        ArrayList<Supplier> suplist=supplierlist();
-        DefaultTableModel model=(DefaultTableModel)jTable_supplier.getModel();
-        Object[] row=new Object[5];
-        for(int i=0;i<suplist.size();i++)
-        {
-             row[0]=suplist.get(i).getsupplier_id();
-             row[1]=suplist.get(i).getname();
-             row[2]=suplist.get(i).getaddress();
-             row[3]=suplist.get(i).getphone();
-             row[4]=suplist.get(i).getemail();
-             model.addRow(row);
+
         }
         
+    }//GEN-LAST:event_SupplierInfo_Delete_Info_ButtonActionPerformed
+
+    private void SupplierInfo_PhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SupplierInfo_PhoneKeyPressed
+        String ph_num = SupplierInfo_Phone.getText();
+        int len = ph_num.length();
+        char ch = evt.getKeyChar();
+
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            if (len < 11) {
+                SupplierInfo_Phone.setEditable(true);
+            } else {
+                SupplierInfo_Phone.setEditable(false);
+            }
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                SupplierInfo_Phone.setEditable(true);
+            } else {
+                SupplierInfo_Phone.setEditable(false);
+            }
+
+        }
+    }//GEN-LAST:event_SupplierInfo_PhoneKeyPressed
+
+    public ArrayList<Supplier> supplierlist() {
+        ArrayList<Supplier> supplierlist = new ArrayList<>();
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery("Select * from supplier");
+            Supplier sp;
+
+            while (resultSet.next()) {
+                sp = new Supplier(resultSet.getInt("supplier_id"), resultSet.getString("name"), resultSet.getString("address_sup"), resultSet.getString("phone_num"), resultSet.getString("email"));
+                supplierlist.add(sp);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return supplierlist;
     }
-        
-    
-    
-    
+
+    public void showSupplier() {
+        ArrayList<Supplier> suplist = supplierlist();
+        DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
+        Object[] row = new Object[5];
+        for (int i = 0; i < suplist.size(); i++) {
+            row[0] = suplist.get(i).getsupplier_id();
+            row[1] = suplist.get(i).getname();
+            row[2] = suplist.get(i).getaddress();
+            row[3] = suplist.get(i).getphone();
+            row[4] = suplist.get(i).getemail();
+            model.addRow(row);
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -202,9 +441,25 @@ public class SupplierFrame_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_menupageback;
+    private javax.swing.JTextField SupplierInfo_Address;
+    private javax.swing.JButton SupplierInfo_Delete_Info_Button;
+    private javax.swing.JButton SupplierInfo_Edit_Button;
+    private javax.swing.JTextField SupplierInfo_Email;
+    private javax.swing.JTextField SupplierInfo_ID;
+    private javax.swing.JTextField SupplierInfo_Name;
+    private javax.swing.JTextField SupplierInfo_Phone;
+    private javax.swing.JTextField Supplier_search_text;
+    private javax.swing.JButton jButton_BackMenuPage;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_supplier;
     // End of variables declaration//GEN-END:variables
+
 }

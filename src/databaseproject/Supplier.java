@@ -5,6 +5,13 @@
  */
 package databaseproject;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+
 /**
  *
  * @author DELL
@@ -22,7 +29,9 @@ class Supplier {
         this.phone=phone;
         this.email=email;
     }
-    
+
+     
+   
     public int getsupplier_id()
     {
          return supplier_id;
@@ -42,5 +51,9 @@ class Supplier {
     public String getemail()
     {
          return email;
+    }
+
+    void fillSupplierTable(JTable jTable_supplier, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

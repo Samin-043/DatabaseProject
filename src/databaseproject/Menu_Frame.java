@@ -5,8 +5,11 @@
  */
 package databaseproject;
 
+import java.awt.Color;
+import java.awt.MenuBar;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 
 /**
  *
@@ -20,11 +23,13 @@ public class Menu_Frame extends javax.swing.JFrame {
     public Menu_Frame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-        this.setSize(900, 500);
+        this.setSize(900, 600);
         this.setLocationRelativeTo(null);
         
     }
-
+    
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,36 +38,57 @@ public class Menu_Frame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuBar_Supplier = new javax.swing.JMenuBar();
+        Supplier_Menu = new javax.swing.JMenu();
         supplier_add = new javax.swing.JMenuItem();
         supplier_view = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\WMS_back_4.png")); // NOI18N
+        jLabel1.setText("                          ");
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 51, 102));
-        jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jMenuBar_Supplier.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jMenuBar_Supplier, org.jdesktop.beansbinding.ELProperty.create("${background}"), jMenuBar_Supplier, org.jdesktop.beansbinding.BeanProperty.create("background"));
+        bindingGroup.addBinding(binding);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setBackground(new java.awt.Color(255, 255, 255));
-        jMenu3.setText("Supplier");
+        Supplier_Menu.setBackground(new java.awt.Color(255,51,102));
+        Supplier_Menu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Supplier_Menu.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\supplier_60.png")); // NOI18N
+        Supplier_Menu.setText("Supplier");
+        Supplier_Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Supplier_MenuActionPerformed(evt);
+            }
+        });
 
         supplier_add.setText("ADD");
         supplier_add.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +96,7 @@ public class Menu_Frame extends javax.swing.JFrame {
                 supplier_addActionPerformed(evt);
             }
         });
-        jMenu3.add(supplier_add);
+        Supplier_Menu.add(supplier_add);
 
         supplier_view.setText("VIEW");
         supplier_view.addActionListener(new java.awt.event.ActionListener() {
@@ -78,9 +104,9 @@ public class Menu_Frame extends javax.swing.JFrame {
                 supplier_viewActionPerformed(evt);
             }
         });
-        jMenu3.add(supplier_view);
+        Supplier_Menu.add(supplier_view);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar_Supplier.add(Supplier_Menu);
 
         jMenu4.setText("Product");
 
@@ -90,26 +116,40 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenuItem5.setText("LIST");
         jMenu4.add(jMenuItem5);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar_Supplier.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        jMenu5.setText("Staff");
+        jMenuBar_Supplier.add(jMenu5);
+
+        jMenu1.setText("Payment");
+        jMenuBar_Supplier.add(jMenu1);
+
+        jMenu6.setText("OrderDetails");
+        jMenuBar_Supplier.add(jMenu6);
+
+        jMenu3.setText("Customer");
+        jMenuBar_Supplier.add(jMenu3);
+
+        setJMenuBar(jMenuBar_Supplier);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(217, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(172, 172, 172))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,6 +163,10 @@ public class Menu_Frame extends javax.swing.JFrame {
         SupplierFrame_view sf_v=new SupplierFrame_view();
         sf_v.setVisible(true);
     }//GEN-LAST:event_supplier_viewActionPerformed
+
+    private void Supplier_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_MenuActionPerformed
+        
+    }//GEN-LAST:event_Supplier_MenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,16 +205,20 @@ public class Menu_Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private static javax.swing.JMenu Supplier_Menu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    public javax.swing.JMenuBar jMenuBar_Supplier;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem supplier_add;
     private javax.swing.JMenuItem supplier_view;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
