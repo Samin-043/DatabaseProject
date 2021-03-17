@@ -46,7 +46,7 @@
               </Border>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="H:\CSE 3.1\3.1\LAB\Data_Base LAB\Warehouse_Management_System\Images\supplier_60.png"/>
+              <Image iconType="2" name="H:\CSE 3.1\3.1\LAB\Data_Base LAB\Warehouse_Management_System\Images\clipart_60.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Supplier"/>
           </Properties>
@@ -67,7 +67,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="supplier_view">
               <Properties>
-                <Property name="text" type="java.lang.String" value="VIEW"/>
+                <Property name="text" type="java.lang.String" value="LIST"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplier_viewActionPerformed"/>
@@ -77,6 +77,14 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="2"/>
+              </Border>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="H:\CSE 3.1\3.1\LAB\Data_Base LAB\Warehouse_Management_System\Images\products_60.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Product"/>
           </Properties>
           <SubComponents>

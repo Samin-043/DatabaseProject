@@ -82,7 +82,7 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         Supplier_Menu.setBackground(new java.awt.Color(255,51,102));
         Supplier_Menu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Supplier_Menu.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\supplier_60.png")); // NOI18N
+        Supplier_Menu.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\clipart_60.png")); // NOI18N
         Supplier_Menu.setText("Supplier");
         Supplier_Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class Menu_Frame extends javax.swing.JFrame {
         });
         Supplier_Menu.add(supplier_add);
 
-        supplier_view.setText("VIEW");
+        supplier_view.setText("LIST");
         supplier_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier_viewActionPerformed(evt);
@@ -108,6 +108,8 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuBar_Supplier.add(Supplier_Menu);
 
+        jMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jMenu4.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\products_60.png")); // NOI18N
         jMenu4.setText("Product");
 
         jMenuItem4.setText("ADD");
