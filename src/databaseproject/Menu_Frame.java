@@ -42,6 +42,10 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar_Supplier = new javax.swing.JMenuBar();
         Supplier_Menu = new javax.swing.JMenu();
@@ -50,10 +54,14 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem_CustomerAdd = new javax.swing.JMenuItem();
+        jMenuItem_CustomerList = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem_StaffAdd = new javax.swing.JMenuItem();
+        jMenuItem_staffLsit = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -68,12 +76,36 @@ public class Menu_Frame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jMenuItem3.setText("jMenuItem3");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenuItem6.setText("jMenuItem6");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\WMS_back_4.png")); // NOI18N
         jLabel1.setText("                          ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(188, 188, 188)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(72, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
 
         jMenuBar_Supplier.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
@@ -120,17 +152,53 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuBar_Supplier.add(jMenu4);
 
-        jMenu5.setText("Staff");
-        jMenuBar_Supplier.add(jMenu5);
-
         jMenu1.setText("Payment");
         jMenuBar_Supplier.add(jMenu1);
 
         jMenu6.setText("OrderDetails");
         jMenuBar_Supplier.add(jMenu6);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\customer_60.png")); // NOI18N
         jMenu3.setText("Customer");
+
+        jMenuItem_CustomerAdd.setText("ADD");
+        jMenuItem_CustomerAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_CustomerAddActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem_CustomerAdd);
+
+        jMenuItem_CustomerList.setText("List");
+        jMenuItem_CustomerList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_CustomerListActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem_CustomerList);
+
         jMenuBar_Supplier.add(jMenu3);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\staff_60.png")); // NOI18N
+        jMenu5.setText("Staff");
+
+        jMenuItem_StaffAdd.setText("ADD");
+        jMenuItem_StaffAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_StaffAddActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem_StaffAdd);
+
+        jMenuItem_staffLsit.setText("List");
+        jMenuItem_staffLsit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_staffLsitActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem_staffLsit);
+
+        jMenuBar_Supplier.add(jMenu5);
 
         setJMenuBar(jMenuBar_Supplier);
 
@@ -138,17 +206,13 @@ public class Menu_Frame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(217, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bindingGroup.bind();
@@ -169,6 +233,27 @@ public class Menu_Frame extends javax.swing.JFrame {
     private void Supplier_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_MenuActionPerformed
         
     }//GEN-LAST:event_Supplier_MenuActionPerformed
+
+    private void jMenuItem_CustomerAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CustomerAddActionPerformed
+        Customer cs=new Customer();
+        cs.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_CustomerAddActionPerformed
+
+    private void jMenuItem_CustomerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CustomerListActionPerformed
+            CustomerView csview=new CustomerView();
+            csview.setVisible(true);
+    
+    }//GEN-LAST:event_jMenuItem_CustomerListActionPerformed
+
+    private void jMenuItem_StaffAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_StaffAddActionPerformed
+        Staff sf=new Staff();
+        sf.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_StaffAddActionPerformed
+
+    private void jMenuItem_staffLsitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_staffLsitActionPerformed
+        StaffView sfview=new StaffView();
+        sfview.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_staffLsitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,6 +293,7 @@ public class Menu_Frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JMenu Supplier_Menu;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
@@ -216,9 +302,16 @@ public class Menu_Frame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     public javax.swing.JMenuBar jMenuBar_Supplier;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem_CustomerAdd;
+    private javax.swing.JMenuItem jMenuItem_CustomerList;
+    private javax.swing.JMenuItem jMenuItem_StaffAdd;
+    private javax.swing.JMenuItem jMenuItem_staffLsit;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JMenuItem supplier_add;
     private javax.swing.JMenuItem supplier_view;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

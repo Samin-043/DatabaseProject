@@ -264,6 +264,7 @@ public class ProductFrame extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection(url);
             
             String query = "insert into product(product_name,product_quantity,product_unit,product_price,product_description,category,supplier_id)values(?,?,?,?,?,?,?)";
+            
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, jText_ProductName.getText());
             pst.setString(2, jText_ProductQuantity.getText());
