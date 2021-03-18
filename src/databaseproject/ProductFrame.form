@@ -122,54 +122,53 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jButton_Productinsert" min="-2" pref="67" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel7" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel8" min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jText_ProductQuantity" min="-2" pref="234" max="-2" attributes="0"/>
-                              <Component id="jComboBox_ProductUnit" min="-2" pref="235" max="-2" attributes="0"/>
-                              <Component id="jButton_MenuPageBack" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jText_ProductName" min="-2" pref="239" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel10" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jText_ProductCategory" min="-2" pref="243" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel5" min="-2" pref="73" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jText_ProductDescription" min="-2" pref="243" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel6" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jText_ProductCostPerUnit" min="-2" pref="243" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="168" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jButton_MenuPageBack" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jText_ProductName" min="-2" pref="239" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jButton_Productinsert" min="-2" pref="67" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="jComboBox_ProductUnit" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
+                          <Component id="jText_ProductQuantity" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel5" min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jText_ProductDescription" min="-2" pref="243" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel10" min="-2" pref="71" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jComboBox_ProuductCategory" min="-2" pref="243" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel6" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jText_ProductCostPerUnit" min="-2" pref="243" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="168" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -178,48 +177,35 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jText_ProductCostPerUnit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jText_ProductName" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jText_ProductName" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jText_ProductCostPerUnit" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jText_ProductQuantity" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel8" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="jComboBox_ProductUnit" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jText_ProductDescription" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jText_ProductCategory" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jText_ProductQuantity" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="jText_ProductDescription" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel8" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="jComboBox_ProductUnit" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jLabel10" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jComboBox_ProuductCategory" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="105" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton_MenuPageBack" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jButton_Productinsert" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -320,7 +306,26 @@
             <Property name="text" type="java.lang.String" value="Category"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jText_ProductCategory">
+        <Component class="javax.swing.JComboBox" name="jComboBox_ProuductCategory">
+          <Properties>
+            <Property name="maximumRowCount" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="50" type="code"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value="CategoryList"/>
+                <StringItem index="1" value="Rice"/>
+                <StringItem index="2" value="Milk"/>
+                <StringItem index="3" value="Moblie"/>
+                <StringItem index="4" value="Fruits"/>
+                <StringItem index="5" value=" "/>
+                <StringItem index="6" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

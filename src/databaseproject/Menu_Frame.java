@@ -52,8 +52,8 @@ public class Menu_Frame extends javax.swing.JFrame {
         supplier_add = new javax.swing.JMenuItem();
         supplier_view = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem_ProductAdd = new javax.swing.JMenuItem();
+        jmenu_product_list = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -146,11 +146,21 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\products_60.png")); // NOI18N
         jMenu4.setText("Product");
 
-        jMenuItem4.setText("ADD");
-        jMenu4.add(jMenuItem4);
+        jMenuItem_ProductAdd.setText("ADD");
+        jMenuItem_ProductAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_ProductAddActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem_ProductAdd);
 
-        jMenuItem5.setText("LIST");
-        jMenu4.add(jMenuItem5);
+        jmenu_product_list.setText("LIST");
+        jmenu_product_list.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenu_product_listActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmenu_product_list);
 
         jMenuBar_Supplier.add(jMenu4);
 
@@ -257,6 +267,18 @@ public class Menu_Frame extends javax.swing.JFrame {
         sfview.setVisible(true);
     }//GEN-LAST:event_jMenuItem_staffLsitActionPerformed
 
+    private void jmenu_product_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_product_listActionPerformed
+        ProductFrame_view pfv=new ProductFrame_view();
+        pfv.setVisible(true);
+        
+    }//GEN-LAST:event_jmenu_product_listActionPerformed
+
+    private void jMenuItem_ProductAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ProductAddActionPerformed
+        ProductFrame pf=new ProductFrame();
+        pf.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem_ProductAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,15 +327,15 @@ public class Menu_Frame extends javax.swing.JFrame {
     public javax.swing.JMenuBar jMenuBar_Supplier;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem_CustomerAdd;
     private javax.swing.JMenuItem jMenuItem_CustomerList;
+    private javax.swing.JMenuItem jMenuItem_ProductAdd;
     private javax.swing.JMenuItem jMenuItem_StaffAdd;
     private javax.swing.JMenuItem jMenuItem_staffLsit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem jmenu_product_list;
     private javax.swing.JMenuItem supplier_add;
     private javax.swing.JMenuItem supplier_view;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

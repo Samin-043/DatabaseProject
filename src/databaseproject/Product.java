@@ -17,14 +17,14 @@ class Product {
     private String name,quantity,unit,description,category;
     //private int supplier_id;
     
-    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,double pric_e,String descriptio_n,String categor_y)
+    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,double pric_e,String categor_y)
     {
         this.product_id=produc_t_id;
         this.name=nam_e;
         this.quantity=quantit_y;
         this.unit=uni_t;
         this.price=pric_e;
-        this.description=descriptio_n;
+        //this.description=descriptio_n;
         this.category=categor_y;
          
     }
@@ -49,10 +49,7 @@ class Product {
     {
          return price;
     }
-    public String getdescription()
-    {
-         return description;
-    }
+    
     public String getcategory()
     {
          return category;
