@@ -55,8 +55,6 @@ public class ProductFrame extends javax.swing.JFrame {
         jButton_Productinsert = new javax.swing.JButton();
         jButton_MenuPageBack = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jText_ProductSupplierID = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jText_ProductCategory = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -151,8 +149,6 @@ public class ProductFrame extends javax.swing.JFrame {
 
         jLabel10.setText("Category");
 
-        jLabel11.setText("Supplier ID");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -185,10 +181,6 @@ public class ProductFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jText_ProductDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jText_ProductSupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,12 +224,8 @@ public class ProductFrame extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jText_ProductCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jText_ProductSupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_MenuPageBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_Productinsert, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -263,7 +251,7 @@ public class ProductFrame extends javax.swing.JFrame {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;user=sa;password=123467";
             Connection con = DriverManager.getConnection(url);
             
-            String query = "insert into product(product_name,product_quantity,product_unit,product_price,product_description,category,supplier_id)values(?,?,?,?,?,?,?)";
+            String query = "insert into product(product_name,product_quantity,product_unit,product_price,product_description,category)values(?,?,?,?,?,?)";
             
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, jText_ProductName.getText());
@@ -272,7 +260,7 @@ public class ProductFrame extends javax.swing.JFrame {
             pst.setString(4, jText_ProductCostPerUnit.getText());
             pst.setString(5, jText_ProductDescription.getText());
             pst.setString(6, jText_ProductCategory.getText());
-            pst.setString(7, jText_ProductSupplierID.getText());
+            //pst.setString(7, jText_ProductSupplierID.getText());
 
             pst.executeUpdate();
 
@@ -333,7 +321,6 @@ public class ProductFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_ProductUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -349,6 +336,5 @@ public class ProductFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jText_ProductDescription;
     private javax.swing.JTextField jText_ProductName;
     private javax.swing.JTextField jText_ProductQuantity;
-    private javax.swing.JTextField jText_ProductSupplierID;
     // End of variables declaration//GEN-END:variables
 }

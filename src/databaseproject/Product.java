@@ -15,9 +15,9 @@ class Product {
     private int product_id;
     private double price;
     private String name,quantity,unit,description,category;
-    private int supplier_id;
+    //private int supplier_id;
     
-    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,double pric_e,String descriptio_n,String categor_y,int supplier_i_d)
+    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,double pric_e,String descriptio_n,String categor_y)
     {
         this.product_id=produc_t_id;
         this.name=nam_e;
@@ -26,7 +26,7 @@ class Product {
         this.price=pric_e;
         this.description=descriptio_n;
         this.category=categor_y;
-        this.supplier_id=supplier_i_d;   
+         
     }
     
     public int getproductID()
@@ -57,9 +57,6 @@ class Product {
     {
          return category;
     }
-    public int getsupplier_id()
-    {
-         return supplier_id;
-    }
+    
     
 }

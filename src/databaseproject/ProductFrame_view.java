@@ -7,10 +7,12 @@ package databaseproject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -38,12 +40,12 @@ public class ProductFrame_view extends javax.swing.JFrame {
                 Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
                 Statement statement = connection.createStatement();
                 
-                ResultSet resultSet=statement.executeQuery("select * from product");
+                ResultSet resultSet=statement.executeQuery("select product_id,product_name,product_quantity,product_unit,product_price,product_description,category from product");
                 Product pd;
                 
                 while(resultSet.next())
                 {
-                    pd=new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getString("product_quantity"),resultSet.getString("product_unit"),resultSet.getDouble("product_price"),resultSet.getString("product_description"),resultSet.getString("category"),resultSet.getInt("supplier_id"));
+                    pd=new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getString("product_quantity"),resultSet.getString("product_unit"),resultSet.getDouble("product_price"),resultSet.getString("product_description"),resultSet.getString("category"));
                     productlist.add(pd);
                 }
                 
@@ -71,7 +73,7 @@ public class ProductFrame_view extends javax.swing.JFrame {
             row[4]=pdlist.get(i).getprice();
             row[5]=pdlist.get(i).getdescription();
             row[6]=pdlist.get(i).getcategory();
-            row[7]=pdlist.get(i).getsupplier_id();
+            //row[7]=pdlist.get(i).getsupplier_id();
             model.addRow(row);
         }
     }
@@ -88,19 +90,24 @@ public class ProductFrame_view extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Product = new javax.swing.JTable();
+        Delete = new javax.swing.JButton();
+        Back_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+
+        jTable_Product.setBackground(new java.awt.Color(255, 51, 153));
         jTable_Product.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product ID", "Product Name", "Product Quantity", "Product Unit", "Product Price", "Product Description", "Category", "Supplier ID"
+                "Product ID", "Product Name", "Product Quantity", "Product Unit", "Product Price", "Product Description", "Category"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -109,39 +116,91 @@ public class ProductFrame_view extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable_Product);
 
+        Delete.setBackground(new java.awt.Color(255, 51, 102));
+        Delete.setText("Delete");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteActionPerformed(evt);
+            }
+        });
+
+        Back_btn.setBackground(new java.awt.Color(255, 51, 102));
+        Back_btn.setText("Back");
+        Back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 269, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Delete)
+                    .addComponent(Back_btn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(Back_btn)
+                        .addGap(69, 69, 69)
+                        .addComponent(Delete)))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    
+    
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+       try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
+                Statement statement = connection.createStatement();
+                int row = jTable_Product.getSelectedRow();
+                String value = (jTable_Product.getModel().getValueAt(row, 0).toString());
+                String query = "DELETE from product where product_id=" + value;
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.executeUpdate();
+                DefaultTableModel model = (DefaultTableModel) jTable_Product.getModel();
+                model.setRowCount(0);
+                showProduct();
+                JOptionPane.showMessageDialog(null, "Deleted Succesfully...");
+       }
+       catch (Exception e) {
+                e.printStackTrace();
+            }
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void Back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_btnActionPerformed
+        Menu_Frame mf=new Menu_Frame();
+        mf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Back_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +239,8 @@ public class ProductFrame_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back_btn;
+    private javax.swing.JButton Delete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Product;
