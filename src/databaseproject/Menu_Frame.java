@@ -23,11 +23,10 @@ public class Menu_Frame extends javax.swing.JFrame {
     public Menu_Frame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-        this.setSize(900, 600);
+        this.setSize(1000, 600);
         this.setLocationRelativeTo(null);
         
     }
-    
    
     
     /**
@@ -233,13 +232,16 @@ public class Menu_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void supplier_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_addActionPerformed
+        
         SupplierFrame sf=new SupplierFrame();
         sf.setVisible(true);
+        dispose();
     }//GEN-LAST:event_supplier_addActionPerformed
 
     private void supplier_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_viewActionPerformed
         SupplierFrame_view sf_v=new SupplierFrame_view();
         sf_v.setVisible(true);
+        dispose();
     }//GEN-LAST:event_supplier_viewActionPerformed
 
     private void Supplier_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_MenuActionPerformed
@@ -249,34 +251,38 @@ public class Menu_Frame extends javax.swing.JFrame {
     private void jMenuItem_CustomerAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CustomerAddActionPerformed
         Customer cs=new Customer();
         cs.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem_CustomerAddActionPerformed
 
     private void jMenuItem_CustomerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CustomerListActionPerformed
             CustomerView csview=new CustomerView();
             csview.setVisible(true);
-    
+            dispose();    
     }//GEN-LAST:event_jMenuItem_CustomerListActionPerformed
 
     private void jMenuItem_StaffAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_StaffAddActionPerformed
         Staff sf=new Staff();
         sf.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem_StaffAddActionPerformed
 
     private void jMenuItem_staffLsitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_staffLsitActionPerformed
         StaffView sfview=new StaffView();
         sfview.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItem_staffLsitActionPerformed
 
     private void jmenu_product_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_product_listActionPerformed
         ProductFrame_view pfv=new ProductFrame_view();
         pfv.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_jmenu_product_listActionPerformed
 
     private void jMenuItem_ProductAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ProductAddActionPerformed
         ProductFrame pf=new ProductFrame();
         pf.setVisible(true);
-        
+        dispose();
     }//GEN-LAST:event_jMenuItem_ProductAddActionPerformed
 
     /**

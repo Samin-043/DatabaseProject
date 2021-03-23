@@ -5,6 +5,7 @@
  */
 package databaseproject;
 
+import com.sun.imageio.plugins.png.RowFilter;
 import com.sun.org.apache.xalan.internal.XalanConstants;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import jdk.management.resource.ResourceType;
 import sun.security.provider.ConfigFile;
 
@@ -32,7 +34,10 @@ public class SupplierFrame_view extends javax.swing.JFrame {
         this.setSize(1000, 600);
         this.setLocationRelativeTo(null);
         showSupplier();
+        // find_supplier();
     }
+
+    Boolean check = false;
 
     /**
      * Creates new form SupplierFrame_view
@@ -64,7 +69,8 @@ public class SupplierFrame_view extends javax.swing.JFrame {
         SupplierInfo_Edit_Button = new javax.swing.JButton();
         SupplierInfo_Delete_Info_Button = new javax.swing.JButton();
         Supplier_search_text = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jButton_search_txt = new javax.swing.JButton();
+        Reset_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,6 +119,11 @@ public class SupplierFrame_view extends javax.swing.JFrame {
 
         jLabel6.setText("   Email");
 
+        SupplierInfo_Phone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SupplierInfo_PhoneMouseClicked(evt);
+            }
+        });
         SupplierInfo_Phone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 SupplierInfo_PhoneKeyPressed(evt);
@@ -154,7 +165,19 @@ public class SupplierFrame_view extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("   Search");
+        jButton_search_txt.setText("Search");
+        jButton_search_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_search_txtActionPerformed(evt);
+            }
+        });
+
+        Reset_Button.setText("Reset");
+        Reset_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Reset_ButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -165,50 +188,52 @@ public class SupplierFrame_view extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(Supplier_search_text, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(185, 185, 185))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 1, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(12, 12, 12))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(35, 35, 35)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(35, 35, 35)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(SupplierInfo_Phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(94, 94, 94))
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(SupplierInfo_Phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
                                 .addComponent(jButton_BackMenuPage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SupplierInfo_Edit_Button)
-                                .addGap(52, 52, 52)
-                                .addComponent(SupplierInfo_Delete_Info_Button)
-                                .addGap(44, 44, 44)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Reset_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SupplierInfo_Edit_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(61, 61, 61)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SupplierInfo_Delete_Info_Button)
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,39 +243,45 @@ public class SupplierFrame_view extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Supplier_search_text, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_search_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SupplierInfo_ID, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SupplierInfo_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SupplierInfo_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SupplierInfo_Phone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(SupplierInfo_Email, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(97, 97, 97)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_BackMenuPage)
                     .addComponent(SupplierInfo_Delete_Info_Button)
                     .addComponent(SupplierInfo_Edit_Button))
+                .addGap(42, 42, 42)
+                .addComponent(Reset_Button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -296,6 +327,10 @@ public class SupplierFrame_view extends javax.swing.JFrame {
 
     private void Supplier_search_textKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Supplier_search_textKeyPressed
 
+        /*DefaultTableModel table=(DefaultTableModel)jTable_supplier.getModel();
+        String search=Supplier_search_text.getText();
+        TableRowSorter<DefaultTableModel>table_row=new TableRowSorter<DefaultTableModel>(table);
+        jTable_supplier.setRowSorter(table_row);*/
 
     }//GEN-LAST:event_Supplier_search_textKeyPressed
 
@@ -306,6 +341,9 @@ public class SupplierFrame_view extends javax.swing.JFrame {
             Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
             Statement statement = connection.createStatement();
 
+            if (SupplierInfo_Phone.getText().length() == 11) {
+                SupplierInfo_Phone.setEditable(true);
+            }
             int row = jTable_supplier.getSelectedRow();
             String value = (jTable_supplier.getModel().getValueAt(row, 0).toString());
 
@@ -322,16 +360,20 @@ public class SupplierFrame_view extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
             model.setRowCount(0);
             showSupplier();
+
             JOptionPane.showMessageDialog(null, "Updated Succesfully...");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }//GEN-LAST:event_SupplierInfo_Edit_ButtonActionPerformed
+
     /*..................DELETED part  here........... */
     private void SupplierInfo_Delete_Info_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierInfo_Delete_Info_ButtonActionPerformed
 
-       int option = JOptionPane.showConfirmDialog(null, "Are You Sure want to delete", "Delete", JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showConfirmDialog(null, "Are You Sure want to delete", "Delete", JOptionPane.YES_NO_OPTION);
 
         if (option == 0) {
             try {
@@ -345,7 +387,7 @@ public class SupplierFrame_view extends javax.swing.JFrame {
                 PreparedStatement ps = connection.prepareStatement(query);
                 ps.executeUpdate();
                 DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
-                model.setRowCount(0);
+                model.setRowCount(1);
                 showSupplier();
                 JOptionPane.showMessageDialog(null, "Deleted Succesfully...");
 
@@ -354,10 +396,18 @@ public class SupplierFrame_view extends javax.swing.JFrame {
             }
 
         }
-        
+
     }//GEN-LAST:event_SupplierInfo_Delete_Info_ButtonActionPerformed
 
     private void SupplierInfo_PhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SupplierInfo_PhoneKeyPressed
+
+        /*if ((SupplierInfo_Phone.getText()).length() < 11) {
+            SupplierInfo_Phone.setEditable(true);
+        } else {
+            SupplierInfo_Phone.setEditable(false);
+
+        }*/
+
         String ph_num = SupplierInfo_Phone.getText();
         int len = ph_num.length();
         char ch = evt.getKeyChar();
@@ -382,49 +432,74 @@ public class SupplierFrame_view extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Supplier_search_textActionPerformed
 
+    /*.............search list................*/
+
     private void Supplier_search_textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Supplier_search_textKeyReleased
-        
+
+        DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        jTable_supplier.setRowSorter(tr);
+        tr.setRowFilter(javax.swing.RowFilter.regexFilter(Supplier_search_text.getText()));
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
             Statement statement = connection.createStatement();
-            String query="select * from supplier where supplier_id=?";
-                 
-            PreparedStatement pst = connection.prepareStatement(query);
-            
-            pst.setString(1, Supplier_search_text.getText());
-            ResultSet rs=pst.executeQuery();
-            
-            if(rs.next())
-            {
-                String spid=rs.getString("supplier_id");
-                SupplierInfo_ID.setText(spid);
-                
-                String spid1=rs.getString("name");
-                SupplierInfo_Name.setText(spid1);
-                
-                String spid2=rs.getString("address_sup");
-                SupplierInfo_Address.setText(spid2);
-                
-                String spid3=rs.getString("phone_num");
-                SupplierInfo_Phone.setText(spid3);
-                
-                String spid4=rs.getString("email");
-                SupplierInfo_Email.setText(spid4);
-        
-                DefaultTableModel model = (DefaultTableModel) jTable_supplier.getModel();
-                model.setRowCount(0);
-                showSupplier();
-               
+
+            String query = "Select * from supplier where name=?";
+            String message = Supplier_search_text.getText();
+
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, message);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                String sp_id = resultSet.getString("supplier_id");
+                SupplierInfo_ID.setText(sp_id);
+
+                String sp_name = resultSet.getString("name");
+                SupplierInfo_Name.setText(sp_name);
+
+                String sp_Address = resultSet.getString("address_sup");
+                SupplierInfo_Address.setText(sp_Address);
+
+                String sp_phone = resultSet.getString("phone_num");
+                SupplierInfo_Phone.setText(sp_phone);
+
+                String sp_email = resultSet.getString("email");
+                SupplierInfo_Email.setText(sp_email);
+
             }
-            
-        }catch (Exception e) {
-                e.printStackTrace();
-          }
-        
-        
+
+            // tableModel.fireTableDataChanged();
+        } catch (Exception e) {
+
+            System.out.println("Error found");
+            e.printStackTrace();
+
+        }
+
     }//GEN-LAST:event_Supplier_search_textKeyReleased
 
+    private void jButton_search_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_search_txtActionPerformed
+        //find_supplier();
+    }//GEN-LAST:event_jButton_search_txtActionPerformed
+
+    private void SupplierInfo_PhoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierInfo_PhoneMouseClicked
+
+    }//GEN-LAST:event_SupplierInfo_PhoneMouseClicked
+
+    private void Reset_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reset_ButtonActionPerformed
+        SupplierInfo_Name.setText("");
+        SupplierInfo_ID.setText("");
+        SupplierInfo_Address.setText("");
+        SupplierInfo_Phone.setText("");
+        SupplierInfo_Email.setText("");
+        check = true;
+        SupplierInfo_Phone.setEditable(true);
+    }//GEN-LAST:event_Reset_ButtonActionPerformed
+     //int set_supp_id=999;
     public ArrayList<Supplier> supplierlist() {
         ArrayList<Supplier> supplierlist = new ArrayList<>();
         try {
@@ -434,11 +509,12 @@ public class SupplierFrame_view extends javax.swing.JFrame {
 
             ResultSet resultSet = statement.executeQuery("Select * from supplier");
             Supplier sp;
+            //set_supp_id++;
+            
 
             while (resultSet.next()) {
                 sp = new Supplier(resultSet.getInt("supplier_id"), resultSet.getString("name"), resultSet.getString("address_sup"), resultSet.getString("phone_num"), resultSet.getString("email"));
                 supplierlist.add(sp);
-
             }
 
         } catch (Exception e) {
@@ -499,6 +575,7 @@ public class SupplierFrame_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Reset_Button;
     private javax.swing.JTextField SupplierInfo_Address;
     private javax.swing.JButton SupplierInfo_Delete_Info_Button;
     private javax.swing.JButton SupplierInfo_Edit_Button;
@@ -508,13 +585,13 @@ public class SupplierFrame_view extends javax.swing.JFrame {
     private javax.swing.JTextField SupplierInfo_Phone;
     private javax.swing.JTextField Supplier_search_text;
     private javax.swing.JButton jButton_BackMenuPage;
+    private javax.swing.JButton jButton_search_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_supplier;
