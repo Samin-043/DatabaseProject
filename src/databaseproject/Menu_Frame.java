@@ -50,10 +50,13 @@ public class Menu_Frame extends javax.swing.JFrame {
         Supplier_Menu = new javax.swing.JMenu();
         supplier_add = new javax.swing.JMenuItem();
         supplier_view = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem_ProductAdd = new javax.swing.JMenuItem();
-        jmenu_product_list = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem_Product_add = new javax.swing.JMenuItem();
+        jMenuItem_Product_view = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem_Transaction_In = new javax.swing.JMenuItem();
+        jMenuItem_Transaction_out = new javax.swing.JMenuItem();
+        jMenu_product_stock = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem_CustomerAdd = new javax.swing.JMenuItem();
@@ -95,17 +98,17 @@ public class Menu_Frame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(246, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(213, 213, 213))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(39, 39, 39))
         );
 
         jMenuBar_Supplier.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -131,7 +134,7 @@ public class Menu_Frame extends javax.swing.JFrame {
         });
         Supplier_Menu.add(supplier_add);
 
-        supplier_view.setText("LIST");
+        supplier_view.setText("View");
         supplier_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier_viewActionPerformed(evt);
@@ -141,31 +144,50 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuBar_Supplier.add(Supplier_Menu);
 
-        jMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jMenu4.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\products_60.png")); // NOI18N
-        jMenu4.setText("Product");
+        jMenu1.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\products_60.png")); // NOI18N
+        jMenu1.setText("Product");
 
-        jMenuItem_ProductAdd.setText("ADD");
-        jMenuItem_ProductAdd.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_Product_add.setText("ADD");
+        jMenuItem_Product_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_ProductAddActionPerformed(evt);
+                jMenuItem_Product_addActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem_ProductAdd);
+        jMenu1.add(jMenuItem_Product_add);
 
-        jmenu_product_list.setText("LIST");
-        jmenu_product_list.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem_Product_view.setText("View");
+        jMenuItem_Product_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmenu_product_listActionPerformed(evt);
+                jMenuItem_Product_viewActionPerformed(evt);
             }
         });
-        jMenu4.add(jmenu_product_list);
+        jMenu1.add(jMenuItem_Product_view);
 
-        jMenuBar_Supplier.add(jMenu4);
-
-        jMenu1.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_1.png")); // NOI18N
-        jMenu1.setText("Payment");
         jMenuBar_Supplier.add(jMenu1);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_1.png")); // NOI18N
+        jMenu2.setText("Transaction");
+
+        jMenuItem_Transaction_In.setText("In");
+        jMenuItem_Transaction_In.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Transaction_InActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Transaction_In);
+
+        jMenuItem_Transaction_out.setText("Out");
+        jMenu2.add(jMenuItem_Transaction_out);
+
+        jMenuBar_Supplier.add(jMenu2);
+
+        jMenu_product_stock.setText("Product Stock");
+        jMenu_product_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_product_stockActionPerformed(evt);
+            }
+        });
+        jMenuBar_Supplier.add(jMenu_product_stock);
 
         jMenu6.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_60.png")); // NOI18N
         jMenu6.setText("OrderDetails");
@@ -182,7 +204,7 @@ public class Menu_Frame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem_CustomerAdd);
 
-        jMenuItem_CustomerList.setText("List");
+        jMenuItem_CustomerList.setText("View");
         jMenuItem_CustomerList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem_CustomerListActionPerformed(evt);
@@ -203,7 +225,7 @@ public class Menu_Frame extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem_StaffAdd);
 
-        jMenuItem_staffLsit.setText("List");
+        jMenuItem_staffLsit.setText("View");
         jMenuItem_staffLsit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem_staffLsitActionPerformed(evt);
@@ -240,6 +262,9 @@ public class Menu_Frame extends javax.swing.JFrame {
 
     private void supplier_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_viewActionPerformed
         SupplierFrame_view sf_v=new SupplierFrame_view();
+        
+        Home_Frame hfm=new Home_Frame();
+        
         sf_v.setVisible(true);
         dispose();
     }//GEN-LAST:event_supplier_viewActionPerformed
@@ -272,18 +297,29 @@ public class Menu_Frame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuItem_staffLsitActionPerformed
 
-    private void jmenu_product_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu_product_listActionPerformed
-        ProductFrame_view pfv=new ProductFrame_view();
-        pfv.setVisible(true);
+    private void jMenuItem_Transaction_InActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Transaction_InActionPerformed
+        TransactionFrame tf=new TransactionFrame();
+        tf.setVisible(true);
         dispose();
-        
-    }//GEN-LAST:event_jmenu_product_listActionPerformed
+    }//GEN-LAST:event_jMenuItem_Transaction_InActionPerformed
 
-    private void jMenuItem_ProductAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ProductAddActionPerformed
+    private void jMenuItem_Product_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Product_viewActionPerformed
+        ProductFrame_view pf_view=new ProductFrame_view();
+        pf_view.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem_Product_viewActionPerformed
+
+    private void jMenuItem_Product_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Product_addActionPerformed
         ProductFrame pf=new ProductFrame();
         pf.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenuItem_ProductAddActionPerformed
+    }//GEN-LAST:event_jMenuItem_Product_addActionPerformed
+
+    private void jMenu_product_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_product_stockActionPerformed
+        StockPageFrame st=new StockPageFrame();
+        st.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenu_product_stockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,8 +362,8 @@ public class Menu_Frame extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     public javax.swing.JMenuBar jMenuBar_Supplier;
@@ -336,12 +372,15 @@ public class Menu_Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem_CustomerAdd;
     private javax.swing.JMenuItem jMenuItem_CustomerList;
-    private javax.swing.JMenuItem jMenuItem_ProductAdd;
+    private javax.swing.JMenuItem jMenuItem_Product_add;
+    private javax.swing.JMenuItem jMenuItem_Product_view;
     private javax.swing.JMenuItem jMenuItem_StaffAdd;
+    private javax.swing.JMenuItem jMenuItem_Transaction_In;
+    private javax.swing.JMenuItem jMenuItem_Transaction_out;
     private javax.swing.JMenuItem jMenuItem_staffLsit;
+    private javax.swing.JMenu jMenu_product_stock;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JMenuItem jmenu_product_list;
     private javax.swing.JMenuItem supplier_add;
     private javax.swing.JMenuItem supplier_view;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

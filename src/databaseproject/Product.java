@@ -12,12 +12,12 @@ package databaseproject;
 class Product {
     
     
-    private int product_id;
-    private double price;
-    private String name,quantity,unit,description,category;
-   // private int supplier_id;
+    private int product_id,price;
     
-    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,double pric_e,String categor_y)
+    private String name,description,unit,category,quantity;
+  
+    
+    public Product(int produc_t_id,String nam_e,String quantit_y,String uni_t,int pric_e,String categor_y)
     {
         this.product_id=produc_t_id;
         this.name=nam_e;
@@ -27,7 +27,6 @@ class Product {
         //this.description=descriptio_n;
         this.category=categor_y;
         
-         
     }
     
     public int getproductID()
@@ -46,7 +45,7 @@ class Product {
     {
          return unit;
     }
-    public double getprice()
+    public int getprice()
     {
          return price;
     }

@@ -177,7 +177,7 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel10.setText("Category");
 
         jComboBox_ProuductCategory.setMaximumRowCount(50);
-        jComboBox_ProuductCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CategoryList", "Rice", "Milk", "Moblie", "Fruits", " ", " " }));
+        jComboBox_ProuductCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CategoryList", "Rice", "Milk", "Moblie", "Fruits", "Water", " " }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -295,6 +295,8 @@ public class ProductFrame extends javax.swing.JFrame {
         jText_ProductQuantity.setText("");
         jText_ProductCostPerUnit.setText("");
         jText_ProductDescription.setText("");
+        //jComboBox_ProductUnit.addItem(" ");
+        //jComboBox_ProuductCategory.addItem(" ");
          
         //dispose();
     }//GEN-LAST:event_jButton_ProductinsertActionPerformed

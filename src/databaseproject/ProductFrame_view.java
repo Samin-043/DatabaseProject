@@ -47,7 +47,7 @@ public class ProductFrame_view extends javax.swing.JFrame {
                 
                 while(resultSet.next())
                 {
-                    pd=new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getString("product_quantity"),resultSet.getString("product_unit"),resultSet.getDouble("product_price"),resultSet.getString("category"));           
+                    pd=new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),resultSet.getString("product_quantity"),resultSet.getString("product_unit"),resultSet.getInt("product_price"),resultSet.getString("category"));           
                     productlist.add(pd);
                 }
                 
@@ -78,9 +78,6 @@ public class ProductFrame_view extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
-    
-    
     
     
     /**
@@ -314,6 +311,14 @@ public class ProductFrame_view extends javax.swing.JFrame {
        catch (Exception e) {
                 e.printStackTrace();
             }
+       
+       txt_Proudct_Name.setText("");
+        txt_Proudct_ID.setText("");
+        txt_Category.setText("");
+        txt_Proudct_Price.setText("");
+        txt_Proudct_Unit.setText("");
+         txt_Proudct_Quantity.setText("");
+    
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void Back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_btnActionPerformed
@@ -365,6 +370,13 @@ public class ProductFrame_view extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+       
+       txt_Proudct_Name.setText("");
+        txt_Proudct_ID.setText("");
+        txt_Category.setText("");
+        txt_Proudct_Price.setText("");
+        txt_Proudct_Unit.setText("");
+         txt_Proudct_Quantity.setText("");
     
     }//GEN-LAST:event_Button_UpdateActionPerformed
 
