@@ -53,17 +53,21 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem_Product_add = new javax.swing.JMenuItem();
         jMenuItem_Product_view = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem_Transaction_In = new javax.swing.JMenuItem();
-        jMenuItem_Transaction_out = new javax.swing.JMenuItem();
-        jMenu_product_stock = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem_CustomerAdd = new javax.swing.JMenuItem();
         jMenuItem_CustomerList = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem_Transaction_In = new javax.swing.JMenuItem();
+        jMenuItem_Transaction_out = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem_viewReport_in = new javax.swing.JMenuItem();
+        jMenuItem_trans_out = new javax.swing.JMenuItem();
+        jMenu_product_stock = new javax.swing.JMenu();
+        jMenuItem_product_stock_view = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem_StaffAdd = new javax.swing.JMenuItem();
         jMenuItem_staffLsit = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -106,7 +110,7 @@ public class Menu_Frame extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -165,34 +169,6 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuBar_Supplier.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_1.png")); // NOI18N
-        jMenu2.setText("Transaction");
-
-        jMenuItem_Transaction_In.setText("In");
-        jMenuItem_Transaction_In.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_Transaction_InActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem_Transaction_In);
-
-        jMenuItem_Transaction_out.setText("Out");
-        jMenu2.add(jMenuItem_Transaction_out);
-
-        jMenuBar_Supplier.add(jMenu2);
-
-        jMenu_product_stock.setText("Product Stock");
-        jMenu_product_stock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu_product_stockActionPerformed(evt);
-            }
-        });
-        jMenuBar_Supplier.add(jMenu_product_stock);
-
-        jMenu6.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_60.png")); // NOI18N
-        jMenu6.setText("OrderDetails");
-        jMenuBar_Supplier.add(jMenu6);
-
         jMenu3.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\customer_60.png")); // NOI18N
         jMenu3.setText("Customer");
 
@@ -214,6 +190,60 @@ public class Menu_Frame extends javax.swing.JFrame {
 
         jMenuBar_Supplier.add(jMenu3);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_1.png")); // NOI18N
+        jMenu2.setText("Transaction");
+
+        jMenuItem_Transaction_In.setText("In");
+        jMenuItem_Transaction_In.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_Transaction_InActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem_Transaction_In);
+
+        jMenuItem_Transaction_out.setText("Out");
+        jMenu2.add(jMenuItem_Transaction_out);
+
+        jMenu4.setText("View Report");
+
+        jMenuItem_viewReport_in.setText("Transaction IN");
+        jMenuItem_viewReport_in.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_viewReport_inActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem_viewReport_in);
+
+        jMenuItem_trans_out.setText("Transaction OUT");
+        jMenuItem_trans_out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_trans_outActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem_trans_out);
+
+        jMenu2.add(jMenu4);
+
+        jMenuBar_Supplier.add(jMenu2);
+
+        jMenu_product_stock.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\product_stock_60.png")); // NOI18N
+        jMenu_product_stock.setText("Product Stock");
+        jMenu_product_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_product_stockActionPerformed(evt);
+            }
+        });
+
+        jMenuItem_product_stock_view.setText("View");
+        jMenuItem_product_stock_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_product_stock_viewActionPerformed(evt);
+            }
+        });
+        jMenu_product_stock.add(jMenuItem_product_stock_view);
+
+        jMenuBar_Supplier.add(jMenu_product_stock);
+
         jMenu5.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\staff_60.png")); // NOI18N
         jMenu5.setText("Staff");
 
@@ -234,6 +264,10 @@ public class Menu_Frame extends javax.swing.JFrame {
         jMenu5.add(jMenuItem_staffLsit);
 
         jMenuBar_Supplier.add(jMenu5);
+
+        jMenu6.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\pay_60.png")); // NOI18N
+        jMenu6.setText("OrderDetails");
+        jMenuBar_Supplier.add(jMenu6);
 
         setJMenuBar(jMenuBar_Supplier);
 
@@ -298,7 +332,7 @@ public class Menu_Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_staffLsitActionPerformed
 
     private void jMenuItem_Transaction_InActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_Transaction_InActionPerformed
-        TransactionFrame tf=new TransactionFrame();
+        TransactionFrame_IN tf=new TransactionFrame_IN();
         tf.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem_Transaction_InActionPerformed
@@ -316,10 +350,26 @@ public class Menu_Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_Product_addActionPerformed
 
     private void jMenu_product_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_product_stockActionPerformed
+        
+    }//GEN-LAST:event_jMenu_product_stockActionPerformed
+
+    private void jMenuItem_product_stock_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_product_stock_viewActionPerformed
         StockPageFrame st=new StockPageFrame();
         st.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenu_product_stockActionPerformed
+    }//GEN-LAST:event_jMenuItem_product_stock_viewActionPerformed
+
+    private void jMenuItem_viewReport_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_viewReport_inActionPerformed
+        ViewReport_TransactionIN_1 tran_in=new ViewReport_TransactionIN_1();
+        tran_in.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem_viewReport_inActionPerformed
+
+    private void jMenuItem_trans_outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_trans_outActionPerformed
+        ViewReport_TransactionOUT tran_out=new ViewReport_TransactionOUT();
+        tran_out.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem_trans_outActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,6 +414,7 @@ public class Menu_Frame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     public javax.swing.JMenuBar jMenuBar_Supplier;
@@ -377,7 +428,10 @@ public class Menu_Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_StaffAdd;
     private javax.swing.JMenuItem jMenuItem_Transaction_In;
     private javax.swing.JMenuItem jMenuItem_Transaction_out;
+    private javax.swing.JMenuItem jMenuItem_product_stock_view;
     private javax.swing.JMenuItem jMenuItem_staffLsit;
+    private javax.swing.JMenuItem jMenuItem_trans_out;
+    private javax.swing.JMenuItem jMenuItem_viewReport_in;
     private javax.swing.JMenu jMenu_product_stock;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

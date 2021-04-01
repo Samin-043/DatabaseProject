@@ -306,14 +306,31 @@
               <Connection code="50" type="code"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
+              <StringArray count="24">
                 <StringItem index="0" value="CategoryList"/>
-                <StringItem index="1" value="Rice"/>
-                <StringItem index="2" value="Milk"/>
-                <StringItem index="3" value="Moblie"/>
-                <StringItem index="4" value="Fruits"/>
-                <StringItem index="5" value="Water"/>
-                <StringItem index="6" value=" "/>
+                <StringItem index="1" value="Cooking Essentials "/>
+                <StringItem index="2" value="Rice "/>
+                <StringItem index="3" value="Oil"/>
+                <StringItem index="4" value=" Flour "/>
+                <StringItem index="5" value="Vegetables "/>
+                <StringItem index="6" value="Fruits"/>
+                <StringItem index="7" value=" Fish"/>
+                <StringItem index="8" value=" Meat "/>
+                <StringItem index="9" value="Chocolates &amp; Candies "/>
+                <StringItem index="10" value="Baby Food &amp; Care "/>
+                <StringItem index="11" value="Breads,Biscuits &amp; Cakes"/>
+                <StringItem index="12" value=" Milk &amp; Dairy Products "/>
+                <StringItem index="13" value="Watches "/>
+                <StringItem index="14" value="Mens Shoes "/>
+                <StringItem index="15" value="Accessories"/>
+                <StringItem index="16" value=" Home Appliances "/>
+                <StringItem index="17" value="Sports "/>
+                <StringItem index="18" value="Personal Care"/>
+                <StringItem index="19" value=" Stationery "/>
+                <StringItem index="20" value="Gift &amp; Toys "/>
+                <StringItem index="21" value=" "/>
+                <StringItem index="22" value=" "/>
+                <StringItem index="23" value=" "/>
               </StringArray>
             </Property>
           </Properties>
