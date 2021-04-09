@@ -300,8 +300,8 @@ public class SupplierFrame_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_BackMenuPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BackMenuPageActionPerformed
-        Menu_Frame mf = new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf = new Menu_Frame();
+        //mf.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_jButton_BackMenuPageActionPerformed

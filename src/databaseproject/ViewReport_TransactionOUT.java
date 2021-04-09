@@ -381,7 +381,7 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("         Transaction Report");
+        jLabel1.setText("     Transaction OUT  Report");
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -666,7 +666,7 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(425, 425, 425)
                                 .addComponent(Back)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 509, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -692,10 +692,10 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_balance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Back)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -717,8 +717,8 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Menu_Frame mf=new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf=new Menu_Frame();
+        //mf.setVisible(true);
         dispose();
     }//GEN-LAST:event_BackActionPerformed
 
@@ -730,7 +730,7 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                 Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
                 Statement statement = connection.createStatement();
                 
-                String query="Select sum(payment_total) as sum_payment_total from paymentIN";
+                String query="Select sum(payment_total) as sum_payment_total from paymentOUT";
                 ResultSet rs=statement.executeQuery(query);
                 
                 if(rs.next())
@@ -739,7 +739,7 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                     jTextField_total.setText(val);
                 }
                 
-                String query1="Select sum(payment_paid) as sum_payment_paid from paymentIN";
+                String query1="Select sum(payment_paid) as sum_payment_paid from paymentOUT";
                 ResultSet rs1=statement.executeQuery(query1);
                 
                 if(rs1.next())
@@ -748,7 +748,7 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                     jTextField_paid.setText(val);
                 }
                 
-                String query2="Select sum(payment_remain) as sum_payment_remain from paymentIN";
+                String query2="Select sum(payment_remain) as sum_payment_remain from paymentOUT";
                 ResultSet rs2=statement.executeQuery(query2);
                 
                 if(rs2.next())
@@ -769,8 +769,8 @@ public class ViewReport_TransactionOUT extends javax.swing.JFrame {
                 Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
                 Statement statement = connection.createStatement();
 
-                String query = "select paymentIN.bill_number_pay_in,paymentIN.payment_total,paymentIN.payment_paid,paymentIN.payment_remain,"
-                + "paymentIN.payment_time,supplier.name from supplier inner join paymentIN on paymentIN.supplier_id=supplier.supplier_id";
+                String query = "select paymentOUT.bill_number_pay_out,paymentOUT.payment_total,paymentOUT.payment_paid,paymentOUT.payment_remain,"
+                + "paymentOUT.payment_time,customer.name from customer inner join paymentOUT on paymentOUT.customer_id=customer.customer_id";
                 ResultSet rs = statement.executeQuery(query);
 
                 while (rs.next()) {

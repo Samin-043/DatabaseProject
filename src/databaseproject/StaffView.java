@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -25,17 +26,20 @@ public class StaffView extends javax.swing.JFrame {
      * Creates new form StaffView
      */
     public StaffView() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
+        this.setSize(1000,600);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         show_staff();
     }
     public ArrayList<StaffFrame> staffsList(){
         ArrayList<StaffFrame> staffsList = new ArrayList<>();
          try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;user=sa;password=123467";
-            Connection con = DriverManager.getConnection(url);
-            String query1 = "Select * from staff";
-             Statement st = con.createStatement();
+             Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
+             String query1 = "Select * from Staff";
+             Statement st = connection.createStatement();
              ResultSet rs = st.executeQuery(query1);
              
              StaffFrame staffframe;
@@ -55,12 +59,12 @@ public class StaffView extends javax.swing.JFrame {
         Object[] row = new Object[7];
         for(int i=0;i<list.size();i++){
             row[0] = list.get(i).getStaff_id();
-            row[1] = list.get(i).getCustomer_id();
-            row[2] = list.get(i).getName();
-            row[3] = list.get(i).getStaff_address();
-            row[4] = list.get(i).getPhone_no();
-            row[5] = list.get(i).getEmail();
-            row[6] = list.get(i).getStaff_title();
+            row[1] = list.get(i).getName();
+            row[2] = list.get(i).getStaff_address();
+            row[3] = list.get(i).getPhone_no();
+            row[4] = list.get(i).getEmail();
+            row[5] = list.get(i).getStaff_title();
+            row[6] = list.get(i).getCustomer_id();
             model.addRow(row);
         }
     }
@@ -74,35 +78,86 @@ public class StaffView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Display_Staff = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        s_editButton = new javax.swing.JButton();
-        s_deleteButton = new javax.swing.JButton();
         s_id = new javax.swing.JTextField();
         s_name = new javax.swing.JTextField();
         s_address = new javax.swing.JTextField();
         s_phone = new javax.swing.JTextField();
         s_email = new javax.swing.JTextField();
         s_title = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Display_Staff = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        s_editButton = new javax.swing.JButton();
+        s_deleteButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         s_customer_id = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        s_search = new javax.swing.JTextField();
+
+        jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1000, 600));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 3, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Staff Info");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(414, 414, 414)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel2.setText("Staff id");
+
+        jLabel4.setText("Name");
+
+        jLabel5.setText("Address");
+
+        jLabel6.setText("Phone");
+
+        jLabel7.setText("Email");
+
+        jLabel8.setText("Staff Title");
+
+        s_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                s_emailActionPerformed(evt);
+            }
+        });
 
         Display_Staff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Staff_id", "Name", "Address", "Phone", "Email", "Title", "Customer_id"
+                "Staff Id", "Name", "Address", "Phone", "Email", "Staff Title", "Customer Id"
             }
         ));
         Display_Staff.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,154 +167,151 @@ public class StaffView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Display_Staff);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("Staff Info");
-
-        jLabel2.setText("Staff_id");
-
-        jLabel3.setText("Name");
-
-        jLabel4.setText("Address");
-
-        jLabel5.setText("Phone");
-
-        jLabel6.setText("Email");
-
-        jLabel7.setText("Title");
-
-        jLabel8.setText("Customer_id");
-
-        jButton1.setText("BACK");
+        jButton1.setForeground(new java.awt.Color(255, 0, 51));
+        jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        s_editButton.setText("EDIT");
+        s_editButton.setForeground(new java.awt.Color(255, 0, 51));
+        s_editButton.setText("Edit");
         s_editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 s_editButtonActionPerformed(evt);
             }
         });
 
-        s_deleteButton.setText("DELETE");
+        s_deleteButton.setForeground(new java.awt.Color(255, 0, 51));
+        s_deleteButton.setText("Delete");
         s_deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 s_deleteButtonActionPerformed(evt);
             }
         });
 
-        s_address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                s_addressActionPerformed(evt);
+        jLabel9.setText("Customer Id");
+
+        jLabel10.setText("Search");
+
+        s_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                s_searchKeyReleased(evt);
             }
         });
 
-        s_title.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                s_titleActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel10))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(s_customer_id, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(s_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_id, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_address, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(s_search, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(s_editButton)
+                        .addGap(52, 52, 52)
+                        .addComponent(s_deleteButton)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(s_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(s_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(s_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(s_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(s_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(s_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(s_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(s_customer_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(s_editButton)
+                    .addComponent(s_deleteButton)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(s_customer_id, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                            .addComponent(s_title)
-                            .addComponent(s_email)
-                            .addComponent(s_phone)
-                            .addComponent(s_id)
-                            .addComponent(s_name)
-                            .addComponent(s_address))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(s_editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                        .addComponent(s_deleteButton)
-                        .addGap(72, 72, 72)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(s_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(s_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(s_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(s_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(s_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(s_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(s_customer_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(s_editButton)
-                            .addComponent(s_deleteButton))
-                        .addGap(23, 23, 23))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void s_addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_s_addressActionPerformed
-
-    private void s_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_titleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_s_titleActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       // Menu_Frame mf = new Menu_Frame();
+       // mf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void s_editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_editButtonActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;user=sa;password=123467";
             Connection con = DriverManager.getConnection(url);
@@ -284,23 +336,9 @@ public class StaffView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_s_editButtonActionPerformed
 
-    private void Display_StaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Display_StaffMouseClicked
-        // TODO add your handling code here:
-         int i = Display_Staff.getSelectedRow();
-        TableModel model = Display_Staff.getModel();
-        s_id.setText(model.getValueAt(i, 0).toString());
-        s_customer_id.setText(model.getValueAt(i, 1).toString());
-        s_name.setText(model.getValueAt(i, 2).toString());
-        s_address.setText(model.getValueAt(i, 3).toString());
-        s_phone.setText(model.getValueAt(i, 4).toString());
-        s_email.setText(model.getValueAt(i, 5).toString());
-        s_title.setText(model.getValueAt(i, 6).toString());
-        
-    }//GEN-LAST:event_Display_StaffMouseClicked
-
     private void s_deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_deleteButtonActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;user=sa;password=123467";
             Connection con = DriverManager.getConnection(url);
@@ -319,11 +357,63 @@ public class StaffView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_s_deleteButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu_Frame mf = new Menu_Frame();
-        mf.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void Display_StaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Display_StaffMouseClicked
+        // TODO add your handling code here:
+          int i = Display_Staff.getSelectedRow();
+        TableModel model = Display_Staff.getModel();
+        s_id.setText(model.getValueAt(i, 0).toString());
+        s_name.setText(model.getValueAt(i, 1).toString());
+        s_address.setText(model.getValueAt(i, 2).toString());
+        s_phone.setText(model.getValueAt(i, 3).toString());
+        s_email.setText(model.getValueAt(i, 4).toString());
+        s_title.setText(model.getValueAt(i, 5).toString());
+        s_customer_id.setText(model.getValueAt(i, 6).toString());
+    }//GEN-LAST:event_Display_StaffMouseClicked
+
+    private void s_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_s_emailActionPerformed
+
+    private void s_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_s_searchKeyReleased
+        // TODO add your handling code here:
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;user=sa;password=123467";
+            Connection con = DriverManager.getConnection(url);
+            String sql = "Select * from Staff where staff_id=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,s_search.getText());
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                String setid = rs.getString("staff_id");
+                s_id.setText(setid);
+                
+                String setname = rs.getString("name");
+                s_name.setText(setname);
+                
+                String setadd = rs.getString("staff_address");
+                s_address.setText(setadd);
+                
+                String setphone = rs.getString("phone_no");
+                s_phone.setText(setphone);
+                
+                String setemail = rs.getString("email");
+                s_email.setText(setemail);
+                
+                String set_s_title = rs.getString("staff_title");
+                s_title.setText(set_s_title);
+                
+                String set_c_id = rs.getString("customer_id");
+                s_customer_id.setText(set_c_id);
+                
+                
+                
+            }
+            }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_s_searchKeyReleased
 
     /**
      * @param args the command line arguments
@@ -364,6 +454,7 @@ public class StaffView extends javax.swing.JFrame {
     private javax.swing.JTable Display_Staff;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -371,6 +462,9 @@ public class StaffView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField s_address;
     private javax.swing.JTextField s_customer_id;
@@ -380,6 +474,7 @@ public class StaffView extends javax.swing.JFrame {
     private javax.swing.JTextField s_id;
     private javax.swing.JTextField s_name;
     private javax.swing.JTextField s_phone;
+    private javax.swing.JTextField s_search;
     private javax.swing.JTextField s_title;
     // End of variables declaration//GEN-END:variables
 }

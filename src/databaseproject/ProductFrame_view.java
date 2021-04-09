@@ -322,8 +322,8 @@ public class ProductFrame_view extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void Back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_btnActionPerformed
-        Menu_Frame mf=new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf=new Menu_Frame();
+       // mf.setVisible(true);
         dispose();
     }//GEN-LAST:event_Back_btnActionPerformed
 

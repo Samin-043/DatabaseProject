@@ -764,8 +764,9 @@ public class TransactionFrame_IN extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_Done_item_listActionPerformed
 
     private void jButton_Back_item1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Back_item1ActionPerformed
-        Menu_Frame mf = new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf = new Menu_Frame();
+        //mf.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton_Back_item1ActionPerformed
 
 

@@ -257,7 +257,7 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("Supplier");
+        jLabel12.setText("Customer");
 
         jButton_print.setText("Print");
         jButton_print.addActionListener(new java.awt.event.ActionListener() {
@@ -691,7 +691,7 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
         String value_stock = String.valueOf(jTextField_Product_Stock.getText());
 
         Integer stock_value = Integer.parseInt(value_stock);
-        stock_value = stock_value + pro_unit;
+        stock_value = stock_value - pro_unit;
 
         String stock_val = String.valueOf(stock_value);
 
@@ -723,7 +723,7 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
             tmp_value = z_value;
             check_price = true;
         } else {
-            tmp_value += z_value;
+            tmp_value -= z_value;
         }
         String z_put = String.valueOf(tmp_value);
         jtext_money_Amount.setText(z_put);
@@ -762,8 +762,9 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_Done_item_listActionPerformed
 
     private void jButton_Back_item1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Back_item1ActionPerformed
-        Menu_Frame mf = new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf = new Menu_Frame();
+        //mf.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton_Back_item1ActionPerformed
 
 
@@ -795,8 +796,8 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
 
             String ve = String.valueOf(jComboBox_Supplier.getSelectedItem());
             //String query = "insert into paymentIN(payment_total,payment_paid,payment_remain,payment_time)values(?,?,?,?)";
-            String query = "insert into paymentIN(payment_total,payment_paid,payment_remain,payment_time,supplier_id)"
-                    + "values(?,?,?,?,(select supplier_id from supplier where name='" + ve + "'" + "))";
+            String query = "insert into paymentOUT(payment_total,payment_paid,payment_remain,payment_time,customer_id)"
+                    + "values(?,?,?,?,(select customer_id from customer where name='" + ve + "'" + "))";
             PreparedStatement pst = connection.prepareStatement(query);
 
             LocalDateTime myDateObj = LocalDateTime.now();
@@ -933,7 +934,7 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
                 String un = String.valueOf(jTextField_Product_Unit.getText());
                 Integer pro_unit = Integer.parseInt(un);
 
-                x = x + pro_unit;
+                x = x - pro_unit;
 
                 String y = String.valueOf(x);
 
@@ -959,13 +960,14 @@ public class TransactionFrame_OUT_1 extends javax.swing.JFrame {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
             Statement statement = connection.createStatement();
-            String query = "Select name from supplier";
+            String query = "Select name from customer";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet res;
             res = ps.executeQuery();
 
             while (res.next()) {
                 String name = res.getString("name");
+                System.out.println(name);
                 jComboBox_Supplier.addItem(name);
 
             }

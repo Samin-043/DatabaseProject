@@ -73,14 +73,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="supplier_add">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ADD"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplier_addActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="supplier_view">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View"/>
@@ -99,14 +91,6 @@
             <Property name="text" type="java.lang.String" value="Product"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Product_add">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ADD"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_Product_addActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_Product_view">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View"/>
@@ -125,14 +109,6 @@
             <Property name="text" type="java.lang.String" value="Customer"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_CustomerAdd">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ADD"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_CustomerAddActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_CustomerList">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View"/>
@@ -209,32 +185,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_product_stock_viewActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="H:\CSE 3.1\3.1\LAB\Data_Base LAB\Warehouse_Management_System\Images\staff_60.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Staff"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_StaffAdd">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ADD"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_StaffAddActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_staffLsit">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="View"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_staffLsitActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

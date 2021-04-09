@@ -30,68 +30,92 @@ public class Home_Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jButton_Admin_login = new javax.swing.JButton();
-        jButton_Sales_login = new javax.swing.JButton();
-        jButton_warehouse_login = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu_Admin_part = new javax.swing.JMenu();
+        admin_Login = new javax.swing.JMenuItem();
+        jMenu_warehouse = new javax.swing.JMenu();
+        warehouse_login = new javax.swing.JMenuItem();
+        jMenu_sales = new javax.swing.JMenu();
+        saleslogin = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
-        jButton_Admin_login.setBackground(new java.awt.Color(153, 153, 255));
-        jButton_Admin_login.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton_Admin_login.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Admin_login.setText("Admin Login");
-        jButton_Admin_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Admin_loginActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 102));
+        jLabel1.setText("                           Welcome  IN Warehouse");
 
-        jButton_Sales_login.setBackground(new java.awt.Color(153, 153, 255));
-        jButton_Sales_login.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton_Sales_login.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Sales_login.setText("Sales Login");
-        jButton_Sales_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Sales_loginActionPerformed(evt);
-            }
-        });
-
-        jButton_warehouse_login.setBackground(new java.awt.Color(153, 153, 255));
-        jButton_warehouse_login.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton_warehouse_login.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_warehouse_login.setText("Warehouse Login");
-        jButton_warehouse_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_warehouse_loginActionPerformed(evt);
-            }
-        });
+        jLabel2.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\warehouse_home_page_500.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton_Admin_login, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
-                .addComponent(jButton_warehouse_login, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
-                .addComponent(jButton_Sales_login, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(194, 194, 194)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Admin_login, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Sales_login, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_warehouse_login, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(457, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
+
+        jMenu_Admin_part.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\admin_user_icon_80.png")); // NOI18N
+        jMenu_Admin_part.setText("Admin ");
+
+        admin_Login.setText("Login");
+        admin_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admin_LoginActionPerformed(evt);
+            }
+        });
+        jMenu_Admin_part.add(admin_Login);
+
+        jMenuBar1.add(jMenu_Admin_part);
+
+        jMenu_warehouse.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\warehouse_manager_icon_80.png")); // NOI18N
+        jMenu_warehouse.setText("Warehouse Manager");
+
+        warehouse_login.setText("Login");
+        warehouse_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warehouse_loginActionPerformed(evt);
+            }
+        });
+        jMenu_warehouse.add(warehouse_login);
+
+        jMenuBar1.add(jMenu_warehouse);
+
+        jMenu_sales.setIcon(new javax.swing.ImageIcon("H:\\CSE 3.1\\3.1\\LAB\\Data_Base LAB\\Warehouse_Management_System\\Images\\sales_icon_80.png")); // NOI18N
+        jMenu_sales.setText("Sales Manager");
+
+        saleslogin.setText("Login");
+        saleslogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesloginActionPerformed(evt);
+            }
+        });
+        jMenu_sales.add(saleslogin);
+
+        jMenuBar1.add(jMenu_sales);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,22 +131,24 @@ public class Home_Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_Admin_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Admin_loginActionPerformed
-        
-        
-        Login lg=new Login();
-        lg.setVisible(true);
-        JOptionPane.showMessageDialog(null,"Admin Login Part");
-//dispose();
-    }//GEN-LAST:event_jButton_Admin_loginActionPerformed
+    private void admin_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admin_LoginActionPerformed
+       Admin_Login al=new Admin_Login();
+       al.setVisible(true);
+       dispose();
+     
+    }//GEN-LAST:event_admin_LoginActionPerformed
 
-    private void jButton_Sales_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Sales_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_Sales_loginActionPerformed
+    private void warehouse_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warehouse_loginActionPerformed
+        WarehouseLogin al=new WarehouseLogin();
+       al.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_warehouse_loginActionPerformed
 
-    private void jButton_warehouse_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_warehouse_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_warehouse_loginActionPerformed
+    private void salesloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesloginActionPerformed
+        Sales_Login al=new Sales_Login();
+       al.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_salesloginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,9 +186,17 @@ public class Home_Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Admin_login;
-    private javax.swing.JButton jButton_Sales_login;
-    private javax.swing.JButton jButton_warehouse_login;
+    private javax.swing.JMenuItem admin_Login;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu jMenu_Admin_part;
+    private javax.swing.JMenu jMenu_sales;
+    private javax.swing.JMenu jMenu_warehouse;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem saleslogin;
+    private javax.swing.JMenuItem warehouse_login;
     // End of variables declaration//GEN-END:variables
 }

@@ -80,6 +80,10 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         jTable7 = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable_trans_in = new javax.swing.JTable();
+        dateChooserPanel1 = new datechooser.beans.DateChooserPanel();
+        dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
+        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -111,6 +115,10 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         scrollPane2 = new java.awt.ScrollPane();
         jScrollPane22 = new javax.swing.JScrollPane();
         jTable_trans_IN = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jDateChooser_start = new com.toedter.calendar.JDateChooser();
+        jDateChooser_end = new com.toedter.calendar.JDateChooser();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,7 +166,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane21.setViewportView(jTable20);
 
-        scrollPane1.add(jScrollPane20);
+        scrollPane1.add(jScrollPane21);
 
         jTable19.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,7 +181,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane20.setViewportView(jTable19);
 
-        scrollPane1.add(jScrollPane19);
+        scrollPane1.add(jScrollPane20);
 
         jTable18.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,7 +196,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane19.setViewportView(jTable18);
 
-        scrollPane1.add(jScrollPane18);
+        scrollPane1.add(jScrollPane19);
 
         jTable17.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,7 +211,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane18.setViewportView(jTable17);
 
-        scrollPane1.add(jScrollPane17);
+        scrollPane1.add(jScrollPane18);
 
         jTable16.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,7 +226,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane17.setViewportView(jTable16);
 
-        scrollPane1.add(jScrollPane16);
+        scrollPane1.add(jScrollPane17);
 
         jTable15.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -233,7 +241,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane16.setViewportView(jTable15);
 
-        scrollPane1.add(jScrollPane15);
+        scrollPane1.add(jScrollPane16);
 
         jTable14.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -248,7 +256,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane15.setViewportView(jTable14);
 
-        scrollPane1.add(jScrollPane14);
+        scrollPane1.add(jScrollPane15);
 
         jTable13.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -263,7 +271,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane14.setViewportView(jTable13);
 
-        scrollPane1.add(jScrollPane13);
+        scrollPane1.add(jScrollPane14);
 
         jTable12.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,7 +286,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane13.setViewportView(jTable12);
 
-        scrollPane1.add(jScrollPane12);
+        scrollPane1.add(jScrollPane13);
 
         jTable11.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,7 +301,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane12.setViewportView(jTable11);
 
-        scrollPane1.add(jScrollPane11);
+        scrollPane1.add(jScrollPane12);
 
         jTable10.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -308,7 +316,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane11.setViewportView(jTable10);
 
-        scrollPane1.add(jScrollPane10);
+        scrollPane1.add(jScrollPane11);
 
         jTable9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -323,7 +331,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane10.setViewportView(jTable9);
 
-        scrollPane1.add(jScrollPane9);
+        scrollPane1.add(jScrollPane10);
 
         jTable8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -338,7 +346,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane9.setViewportView(jTable8);
 
-        scrollPane1.add(jScrollPane8);
+        scrollPane1.add(jScrollPane9);
 
         jTable7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -353,7 +361,7 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(jTable7);
 
-        scrollPane1.add(jScrollPane7);
+        scrollPane1.add(jScrollPane8);
 
         jTable_trans_in.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -372,6 +380,8 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
             }
         });
         jScrollPane7.setViewportView(jTable_trans_in);
+
+        scrollPane1.add(jScrollPane7);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -642,6 +652,10 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
 
         scrollPane2.add(jScrollPane22);
 
+        jLabel2.setText("Start");
+
+        jLabel6.setText("End");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -649,51 +663,76 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField_total, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(jTextField_paid)
-                                    .addComponent(jTextField_balance)))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(425, 425, 425)
-                                .addComponent(Back)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(425, 425, 425)
+                        .addComponent(Back)
+                        .addGap(0, 509, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(scrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField_total, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addComponent(jTextField_paid)
+                    .addComponent(jTextField_balance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jDateChooser_end, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                    .addComponent(jDateChooser_start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(249, 249, 249))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextField_total)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jDateChooser_start, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jTextField_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jTextField_paid)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_balance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jTextField_paid)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_balance, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jDateChooser_end, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(61, 61, 61)
+                .addComponent(scrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Back)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -708,15 +747,15 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Menu_Frame mf=new Menu_Frame();
-        mf.setVisible(true);
+        //Menu_Frame mf=new Menu_Frame();
+       // mf.setVisible(true);
         dispose();
     }//GEN-LAST:event_BackActionPerformed
 
@@ -760,6 +799,26 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
         catch (Exception e) {
                 e.printStackTrace();
             }
+        
+        String start=String.valueOf(jDateChooser_start.getDate());
+        String end=String.valueOf(jDateChooser_end.getDate());
+                
+           System.out.println(start);
+           System.out.println(end);
+        
+        /*try
+        {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                Connection connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=WarehouseManagementSystem;selectMethod=cursor", "sa", "123467");
+                Statement statement = connection.createStatement();
+                
+                
+                
+                
+        }
+        catch (Exception e) {
+                e.printStackTrace();
+            }*/
         
 
         try {
@@ -841,12 +900,20 @@ public class ViewReport_TransactionIN_1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private datechooser.beans.DateChooserCombo dateChooserCombo2;
+    private datechooser.beans.DateChooserDialog dateChooserDialog1;
+    private datechooser.beans.DateChooserPanel dateChooserPanel1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser_end;
+    private com.toedter.calendar.JDateChooser jDateChooser_start;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;

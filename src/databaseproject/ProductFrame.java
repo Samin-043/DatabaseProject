@@ -302,8 +302,8 @@ public class ProductFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProductinsertActionPerformed
 
     private void jButton_MenuPageBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_MenuPageBackActionPerformed
-        Menu_Frame mf = new Menu_Frame();
-        mf.setVisible(true);
+       // Menu_Frame mf = new Menu_Frame();
+       // mf.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton_MenuPageBackActionPerformed
 
